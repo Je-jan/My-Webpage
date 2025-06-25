@@ -12,85 +12,103 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmed - Thank You!</title>
+    <title>Yay! Your Order is Confirmed!</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7fafc; /* Lighter background */
+            /* A subtle gradient background for the whole page */
+            background: linear-gradient(to right top, #6a82fb, #fc5c7d);
+            background-attachment: fixed;
         }
-        /* Custom Keyframe for subtle bounce */
-        @keyframes bounce-subtle {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
+
+        /* Custom animation for a cheerful bounce effect */
+        @keyframes happyBounce {
+            0%, 100% { transform: translateY(0); }
+            20% { transform: translateY(-10px); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-8px); }
+            80% { transform: translateY(-3px); }
         }
-        .animate-bounce-subtle {
-            animation: bounce-subtle 1.5s infinite ease-in-out;
+        .animate-happy-bounce {
+            animation: happyBounce 2s infinite ease-in-out;
+        }
+
+        /* Custom glow effect for the success icon */
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.3); }
+            50% { text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5); }
+        }
+        .icon-glow {
+            animation: glow 3s infinite alternate;
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
-    <!-- Header (Minimal) -->
-    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg p-4">
+    <!-- Header with a vibrant gradient -->
+    <header class="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 shadow-xl p-6">
         <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-extrabold text-white">Order Confirmation</h1>
+            <h1 class="text-4xl font-extrabold text-white tracking-wide">
+                🎉 Order Success! 🎉
+            </h1>
         </div>
     </header>
 
-    <!-- Main Content Area - Thank You Message -->
+    <!-- Main Content Area - Colourful Thank You Message Card -->
     <main class="flex-grow container mx-auto p-4 md:p-8 flex items-center justify-center">
-        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 w-full max-w-lg text-center border border-gray-100 transform transition-all duration-500 ease-in-out hover:scale-[1.01] hover:shadow-2xl">
-            <!-- Animated Success Icon (SVG) -->
-            <svg class="mx-auto h-28 w-28 text-green-500 mb-8 animate-bounce-subtle" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full max-w-lg text-center border-4 border-white transform transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-3xl">
+            <!-- Animated Success Icon (Emoji + SVG) -->
+            <div class="relative mb-8">
+                <svg class="mx-auto h-32 w-32 text-green-500 icon-glow animate-happy-bounce" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl">💖</span>
+            </div>
 
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Your Order is Complete!</h2>
-            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                Thank you for your recent purchase from My Awesome Shop. We're busy preparing your items for shipment!
-                <br class="hidden md:block">A detailed order confirmation has been sent to your email address.
+            <h2 class="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Woohoo! Your Purchase Is Confirmed!
+            </h2>
+            <p class="text-gray-700 text-xl mb-10 leading-relaxed">
+                Thank you for choosing us! Your order is being processed with love and care.
+                <br>A magical confirmation email is flying its way to your inbox now!
             </p>
 
-            <div class="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center">
-                <!-- Button to go back to shop -->
+            <div class="space-y-5 md:space-y-0 md:space-x-5 flex flex-col md:flex-row justify-center">
+                <!-- Button to return to shopping with vibrant gradient -->
                 <button
                     id="continueShoppingButton"
-                    class="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:from-blue-600 hover:to-indigo-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75"
+                    class="flex items-center justify-center px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-lg rounded-full shadow-xl hover:from-blue-600 hover:to-purple-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-opacity-75"
                 >
-                    <span class="mr-2">🛍️</span> Continue Shopping
+                    <span class="mr-2 text-2xl">🛍️</span> Continue Your Adventure
                 </button>
 
-                <!-- Button to view order (placeholder) -->
+                <!-- Button to view order with contrasting gradient -->
                 <button
                     id="viewOrderButton"
-                    class="px-8 py-3 bg-gray-100 text-gray-800 font-semibold rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-75 border border-gray-200"
+                    class="flex items-center justify-center px-10 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold text-lg rounded-full shadow-xl hover:from-yellow-500 hover:to-orange-600 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-opacity-75"
                 >
-                    <span class="mr-2">📄</span> View Order History
+                    <span class="mr-2 text-2xl">📦</span> Track My Order
                 </button>
             </div>
 
-            <p class="text-sm text-gray-500 mt-8">
-                Need help? <a href="#" class="text-blue-500 hover:underline">Contact our support team</a>.
+            <p class="text-md text-gray-500 mt-10">
+                Any questions? Our friendly support team is here to help: <a href="#" class="text-blue-500 hover:underline font-semibold">Get in touch!</a>
             </p>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-6 mt-8">
+    <footer class="bg-gray-900 text-white p-6 mt-8">
         <div class="container mx-auto text-center text-sm">
-            <p>&copy; 2025 My Awesome Shop. All rights reserved.</p>
+            <p>&copy; 2025 Awesome Shop. Crafted with <span class="text-red-500">❤️</span>. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Custom alert function to replace native alert() for consistent UI
+        // Custom alert function for a unified and pleasant user experience
         function showCustomAlert(message) {
             const body = document.body;
             let messageBox = document.getElementById('customMessageBox');
@@ -98,12 +116,12 @@
             if (!messageBox) {
                 messageBox = document.createElement('div');
                 messageBox.id = 'customMessageBox';
-                // Styles for backdrop and centering
-                messageBox.className = 'fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-[100] transition-opacity duration-300 opacity-0 pointer-events-none';
+                // Styling for backdrop and centering
+                messageBox.className = 'fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[100] transition-opacity duration-300 opacity-0 pointer-events-none';
                 messageBox.innerHTML = `
-                    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
-                        <p id="messageBoxContent" class="text-gray-800 text-xl font-semibold mb-6"></p>
-                        <button id="messageBoxCloseButton" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">Close</button>
+                    <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
+                        <p id="messageBoxContent" class="text-gray-800 text-xl font-semibold mb-8"></p>
+                        <button id="messageBoxCloseButton" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">Awesome!</button>
                     </div>
                 `;
                 body.appendChild(messageBox);
@@ -123,16 +141,14 @@
 
         // Event listener for "Continue Shopping" button
         document.getElementById('continueShoppingButton').addEventListener('click', function() {
-            showCustomAlert('Redirecting to our exciting product catalog...');
-            // In a real application, you would change window.location.href here
-            // window.location.href = 'your-home-or-shop-page.html';
+            showCustomAlert('Get ready for more amazing finds!');
+            // In a real application, you would redirect: window.location.href = 'your-shop-page.html';
         });
 
-        // Event listener for "View Order History" button
+        // Event listener for "Track My Order" button
         document.getElementById('viewOrderButton').addEventListener('click', function() {
-            showCustomAlert('Accessing your order history... (Feature coming soon!)');
-            // In a real application, you would change window.location.href here
-            // window.location.href = 'your-order-history-page.html';
+            showCustomAlert('Heading to your order tracking page! (Simulated)');
+            // In a real application, you would redirect: window.location.href = 'your-order-tracking-page.html';
         });
     </script>
 </body>
