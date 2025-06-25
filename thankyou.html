@@ -12,7 +12,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Confirmed!</title>
+    <title>Order Confirmed - Thank You!</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter font -->
@@ -20,85 +20,94 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e2e8f0; /* Light blue-gray background */
+            background-color: #f7fafc; /* Lighter background */
+        }
+        /* Custom Keyframe for subtle bounce */
+        @keyframes bounce-subtle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate-bounce-subtle {
+            animation: bounce-subtle 1.5s infinite ease-in-out;
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
-    <!-- Header (Simple) -->
-    <header class="bg-blue-600 shadow-md p-4 sticky top-0 z-10">
-        <div class="container mx-auto flex justify-center items-center">
-            <h1 class="text-2xl font-bold text-white">Your Order Is Complete!</h1>
+    <!-- Header (Minimal) -->
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg p-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-extrabold text-white">Order Confirmation</h1>
         </div>
     </header>
 
     <!-- Main Content Area - Thank You Message -->
     <main class="flex-grow container mx-auto p-4 md:p-8 flex items-center justify-center">
-        <div class="bg-white rounded-lg shadow-2xl p-6 md:p-10 w-full max-w-lg text-center transform transition-all duration-300 ease-in-out hover:scale-[1.01]">
-            <!-- Success Icon (SVG) -->
-            <svg class="mx-auto h-24 w-24 text-green-500 mb-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 w-full max-w-lg text-center border border-gray-100 transform transition-all duration-500 ease-in-out hover:scale-[1.01] hover:shadow-2xl">
+            <!-- Animated Success Icon (SVG) -->
+            <svg class="mx-auto h-28 w-28 text-green-500 mb-8 animate-bounce-subtle" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
 
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Awesome! Thanks for Your Order!</h2>
-            <p class="text-gray-700 text-lg mb-8 leading-relaxed">
-                We've successfully received your purchase and are excited to get it ready for you.
-                You'll receive an email confirmation with all the details and tracking information very soon!
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Your Order is Complete!</h2>
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                Thank you for your recent purchase from My Awesome Shop. We're busy preparing your items for shipment!
+                <br class="hidden md:block">A detailed order confirmation has been sent to your email address.
             </p>
 
             <div class="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center">
-                <!-- Button to return to shopping -->
+                <!-- Button to go back to shop -->
                 <button
                     id="continueShoppingButton"
-                    class="px-8 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75"
+                    class="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:from-blue-600 hover:to-indigo-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75"
                 >
-                    <svg class="inline-block w-5 h-5 mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    Continue Shopping
+                    <span class="mr-2">🛍️</span> Continue Shopping
                 </button>
 
                 <!-- Button to view order (placeholder) -->
                 <button
                     id="viewOrderButton"
-                    class="px-8 py-4 bg-gray-200 text-gray-800 font-semibold rounded-full shadow-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-75"
+                    class="px-8 py-3 bg-gray-100 text-gray-800 font-semibold rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-75 border border-gray-200"
                 >
-                    <svg class="inline-block w-5 h-5 mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                    </svg>
-                    View Order Details
+                    <span class="mr-2">📄</span> View Order History
                 </button>
             </div>
+
+            <p class="text-sm text-gray-500 mt-8">
+                Need help? <a href="#" class="text-blue-500 hover:underline">Contact our support team</a>.
+            </p>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white p-6 mt-8">
+    <footer class="bg-gray-800 text-white p-6 mt-8">
         <div class="container mx-auto text-center text-sm">
-            <p>&copy; 2025 My Awesome Shop. All rights reserved. | <a href="#" class="hover:underline text-blue-300">Privacy Policy</a></p>
+            <p>&copy; 2025 My Awesome Shop. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Custom alert function to replace native alert()
+        // Custom alert function to replace native alert() for consistent UI
         function showCustomAlert(message) {
             const body = document.body;
             let messageBox = document.getElementById('customMessageBox');
 
-            // Create message box if it doesn't exist
             if (!messageBox) {
                 messageBox = document.createElement('div');
                 messageBox.id = 'customMessageBox';
+                // Styles for backdrop and centering
                 messageBox.className = 'fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-[100] transition-opacity duration-300 opacity-0 pointer-events-none';
                 messageBox.innerHTML = `
                     <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
                         <p id="messageBoxContent" class="text-gray-800 text-xl font-semibold mb-6"></p>
-                        <button id="messageBoxCloseButton" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">Got It!</button>
+                        <button id="messageBoxCloseButton" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">Close</button>
                     </div>
                 `;
                 body.appendChild(messageBox);
 
-                // Add event listener to close button
                 document.getElementById('messageBoxCloseButton').addEventListener('click', function() {
                     messageBox.classList.add('opacity-0', 'pointer-events-none');
                     messageBox.querySelector('div').classList.remove('scale-100');
@@ -106,7 +115,6 @@
                 });
             }
 
-            // Set message and show the box
             document.getElementById('messageBoxContent').textContent = message;
             messageBox.classList.remove('opacity-0', 'pointer-events-none');
             messageBox.querySelector('div').classList.remove('scale-95');
@@ -115,17 +123,16 @@
 
         // Event listener for "Continue Shopping" button
         document.getElementById('continueShoppingButton').addEventListener('click', function() {
-            // In a real application, you would redirect the user to the home page or product listing.
-            // For this example, we'll just show a message.
-            showCustomAlert('Redirecting to the main shop page...');
-            // window.location.href = 'your-home-page.html'; // Uncomment and replace with your actual URL
+            showCustomAlert('Redirecting to our exciting product catalog...');
+            // In a real application, you would change window.location.href here
+            // window.location.href = 'your-home-or-shop-page.html';
         });
 
-        // Event listener for "View Order Details" button
+        // Event listener for "View Order History" button
         document.getElementById('viewOrderButton').addEventListener('click', function() {
-            // In a real application, you would redirect the user to their order details page.
-            showCustomAlert('Fetching your order details... (This feature is under construction!)');
-            // window.location.href = 'your-order-details-page.html'; // Uncomment and replace with your actual URL
+            showCustomAlert('Accessing your order history... (Feature coming soon!)');
+            // In a real application, you would change window.location.href here
+            // window.location.href = 'your-order-history-page.html';
         });
     </script>
 </body>
